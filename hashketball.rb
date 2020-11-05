@@ -184,16 +184,16 @@ end
 
 def player_stats(player_name)
 
-  game_hash.values.each do |team_info|
-    team_info[:players].each do |player|
-      if player.has_value?(player_name)
-        
-         return player
+  result = []
+  game_hash.each do |location, team_data|
+    team_data[:players].each do |name, player_attributes|
+      if name == players_name
+        return player_attributes
       end
     end
   end
-
-end 
+  # result
+end
 
 def big_shoe_rebounds
 
