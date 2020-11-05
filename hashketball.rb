@@ -184,8 +184,7 @@ end
 
 def player_stats(player_name)
 
-  game_hash.each do |location, team_data|
-     name = player_name.split(" ").join("_")
+  name = player_name.split(" ").join("_")
   player_stats = Hash.new
 
   game_hash.each { |location, team_data|
