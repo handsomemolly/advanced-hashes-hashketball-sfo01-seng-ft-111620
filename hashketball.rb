@@ -150,7 +150,7 @@ end
 
 def team_colors(team)
 
-  game_hash.each do |team_info|
+  game_hash.values.each do |team_info|
     if team_info.has_value?(team)
       return team_info[:colors].map(&:capitalize)
     end
