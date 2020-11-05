@@ -185,14 +185,13 @@ end
 def player_stats(player_name)
 
   game_hash.each do |location, team_data|
-    team_data[:players].each do |z, a|
-      if z == :players && a.has_key?(players_name)
-        return a[player_name]
-    
-      end
-    end
-  end
-  
+     name = player_name.split(" ").join("_")
+  player_stats = Hash.new
+
+  game_hash.each { |location, team_data|
+    player_stats = team_data[:players][name] if team_data[:players].keys.include?(name)
+  }
+  player_stats
 end
 
 def big_shoe_rebounds
