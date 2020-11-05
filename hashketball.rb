@@ -156,11 +156,11 @@ end
     
 
 def team_names
-  new_array = []
+  output = []
   game_hash.each do |location, team_data|
     output.push(team_data[:team_name])
   end
-    return new_array
+    return output
 
 end
 
