@@ -168,12 +168,17 @@ end
 
 
 def player_numbers(team)
+  
+  jerseys = []
 
-  game_hash.values.each do |team_info|
-    if team_info.has_value?(team)
-      return team_info[:players].map { |player| player[:number]}
+  game_hash.each do |location, team_data|
+    if team_data[:team_name] == team
+      team_data[:players].each do |a|
+        jerseys << a[:number])
+      end
     end
   end
+  return jerseys
 end
 
 
