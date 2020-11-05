@@ -129,7 +129,6 @@ end
 # Write code here
 def num_points_scored(player_name)
  
- answer = nil
   
   game_hash.each do |team_data, details|
     players_array = details[:players]
