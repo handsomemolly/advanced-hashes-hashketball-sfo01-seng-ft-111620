@@ -128,18 +128,14 @@ end
 
 # Write code here
 def num_points_scored(player_name)
- answer = nil
   
-  game_hash.each do |team_data, details_hash|
-    players_array = details_hash[:players]
-    players_array.each do |player_details_hash|
-      if player_details_hash[:name] == player_name
-        answer = player_details_hash[:points]
+  game_hash.each do |team, team_data|
+    team_data[:players].each do |player|
+      if player[:player_name] == player_name
+        return player[:points]
       end
     end
-  end
-  answer
-  
+    
 end 
 
 
