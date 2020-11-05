@@ -183,16 +183,19 @@ end
 
 
 def player_stats(player_name)
-
-  name = player_name.split(" ").join("_")
-  player_stats = Hash.new
-
-  game_hash.each { |location, team_data|
-    player_stats = team_data[:players][name] if team_data[:players].keys.include?(name)
-  }
-  player_stats
+game_hash.each do |team, team_info|
+    team_info.each do |key, value|
+      if key == :players
+        value.each do |player|
+          if input == player[:player_name]
+            player.delete(:player_name) # having player name inside the hash was a bad idea!
+            return player
+          end
+        end
+      end
+    end
+  end
 end
-
 
 def big_shoe_rebounds
 
